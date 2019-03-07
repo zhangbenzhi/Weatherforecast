@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#179BDD</color>
+    <color name="colorPrimaryDark">#179BDD</color>
+    <color name="colorAccent">#179BDD</color>
+    <color name="lanse">#00BCD4</color>
+    <color name="white">#ffffff</color>
+    <color name="huise">#6F6F6F</color>
+    <color name="black">#000000</color>
+    <color name="qianhui">#D4D4D4</color>
+    <color name="huangse">#FF5500</color>
+    <color name="mainColor">#00BCD4</color>
+    <color name="red">#913245</color>
+
+
+
+
+
+
+
+
+
+</resources>
