@@ -1,10 +1,6 @@
 package com.example.weatherforecast.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
@@ -22,6 +18,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.example.weatherforecast.R;
 import com.example.weatherforecast.adapter.WeatherAdapter;
 import com.example.weatherforecast.entity.Pm;
@@ -29,7 +29,8 @@ import com.example.weatherforecast.entity.Weather;
 import com.example.weatherforecast.util.ImageUtil;
 import com.example.weatherforecast.util.RequestUtil;
 
-import static android.R.id.list;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private ProgressBar progressBar;
     String[] spinnerKeys = {"清新主题", "夜间主题"};
     Spinner spinner;
+    public LocationClient mLocationClient = null;
+    private MyLocationListener myListener = new MyLocationListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +55,20 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         initView();// 初始化视图；
         setListener();// 设置监听；
-        //request();// 请求数据；
         setSpinner();
+        location();
+    }
+
+    private void location() {
+        //声明LocationClient类
+        mLocationClient = new LocationClient(getApplicationContext());
+        //配置
+        LocationClientOption option = new LocationClientOption();
+        option.setIsNeedAddress(true);
+        mLocationClient.setLocOption(option);
+        //注册监听函数
+        mLocationClient.registerLocationListener(myListener);
+        mLocationClient.start();
     }
 
     private void setSpinner() {
@@ -169,4 +184,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
     }
 
+    public class MyLocationListener extends BDAbstractLocationListener {
+        @Override
+        public void onReceiveLocation(BDLocation location) {
+            String city = location.getCity();
+            et_city.setText(city);
+            request();
+        }
+    }
 }
