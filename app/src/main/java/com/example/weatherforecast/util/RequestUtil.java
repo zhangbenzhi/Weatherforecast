@@ -2,6 +2,13 @@ package com.example.weatherforecast.util;
 
 import android.util.Log;
 
+import com.example.weatherforecast.constant.Constant;
+import com.example.weatherforecast.entity.Pm;
+import com.example.weatherforecast.entity.Weather;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,13 +20,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import com.example.weatherforecast.constant.Constant;
-import com.example.weatherforecast.entity.Pm;
-import com.example.weatherforecast.entity.Weather;
 
 /**
  * 网络请求天气数据业务类：
@@ -99,6 +99,12 @@ public class RequestUtil {
                 Object result = jsonObject.get("result");
                 if (result instanceof JSONObject) {
                     JSONObject jsonResult = (JSONObject) result;
+                    //TODO 解析穿衣指数
+                    /*Object today = jsonResult.get("today");
+                    JSONObject jsonToday = (JSONObject) today;
+                    Object dressing_advice = jsonToday.get("dressing_advice");
+                    Log.e("TAG",dressing_advice+"");
+                    */
                     Object future = jsonResult.get("future");
                     if (future instanceof JSONObject) {
                         JSONObject jsonFuture = (JSONObject) future;
@@ -120,7 +126,7 @@ public class RequestUtil {
                 }
             }
         } catch (Exception e) {
-            Log.e("TAG",e.getMessage());
+            Log.e("TAG", e.getMessage());
         }
         return weathers;
     }
