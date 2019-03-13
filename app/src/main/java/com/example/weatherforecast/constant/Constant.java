@@ -9,6 +9,6 @@ public class Constant {
     //请求pm:
     public static final String pmUrl = "http://web.juhe.cn:8080/environment/air/pm";
     //请求pm的apikey:
-    public static final String pmApikey = "df3cc1d1e6235e4b15c7fa134e56919c";
+    public static final String pmApikey = "a88593159593dd3b95da1b9f2d488733";
 
 }
