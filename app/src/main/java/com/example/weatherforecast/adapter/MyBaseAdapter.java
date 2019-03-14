@@ -44,7 +44,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 								 ViewGroup parent);
 
 	public void add(List<T> bses) {
-		bs.removeAll(bs);
+		bs.clear();
 		if (bses != null && bses.size() > 0) {
 			bs.addAll(bses);
 		}

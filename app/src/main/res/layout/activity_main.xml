@@ -8,13 +8,13 @@
     tools:openDrawer="start">
 
     <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
@@ -24,38 +24,12 @@
                 android:text="迷你小天氣"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
-
-            <LinearLayout
-                android:id="@+id/theame"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_title"
-                android:gravity="right"
-                android:orientation="horizontal"
-                android:padding="15dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="设置主题样式：" />
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/lv_weather"
+            <include
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/theame"
-                android:divider="@color/qianhui"
-                android:dividerHeight="0.5dp" />
-
+                android:layout_below="@id/tv_title"
+                layout="@layout/lv_header"
+                />
             <ProgressBar
                 android:id="@+id/progressBar"
                 style="@android:style/Widget.DeviceDefault.ProgressBar.Large"
@@ -64,7 +38,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:visibility="gone" />
-
         </RelativeLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>
@@ -73,26 +46,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:visibility="visible"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:background="@color/white">
 
-        <TextView
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="我是左边" />
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/cloth01"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/lianyiqun"
+            android:layout_marginTop="20dp"
+            />
+        <ImageView
+            android:id="@+id/cloth02"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/changxiu"
+            android:layout_marginTop="20dp"
+            />
+        <ImageView
+            android:id="@+id/cloth03"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/maoyi"
+            android:layout_marginTop="20dp"
+            />
+        <ImageView
+            android:id="@+id/cloth04"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/yurongfu"
+            android:layout_marginTop="20dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:visibility="visible"
         android:background="@color/white">
 
-        <TextView
+        <ListView
+            android:id="@+id/lv_weather"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="我是右边" />
-
+            android:divider="@color/qianhui"
+            android:dividerHeight="0.5dp" />
     </LinearLayout>
-
-
 </android.support.v4.widget.DrawerLayout>

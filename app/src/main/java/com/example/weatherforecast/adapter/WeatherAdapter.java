@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.weatherforecast.R;
 import com.example.weatherforecast.entity.Weather;
@@ -29,9 +30,7 @@ public class WeatherAdapter extends MyBaseAdapter<Weather> {
 			holder.tv_state = (TextView) v.findViewById(R.id.tv_state);
 			holder.tv_wind = (TextView) v.findViewById(R.id.tv_wind);
 			holder.tv_temp = (TextView) v.findViewById(R.id.tv_temp);
-			holder.tv_suggestion = (TextView) v
-					.findViewById(R.id.tv_suggestion);
-			holder.tv_quality = (TextView) v.findViewById(R.id.tv_quality);
+			holder.cloth= (TextView) v.findViewById(R.id.cloth);
 			v.setTag(holder);
 		} else {
 			holder = (ViewHolder) v.getTag();
@@ -41,12 +40,25 @@ public class WeatherAdapter extends MyBaseAdapter<Weather> {
 			ImageUtil.setImg(holder.iv, weather.getState());
 			holder.tv_date.setText(weather.getDate());
 			holder.tv_state.setText(weather.getState());
-			holder.tv_suggestion.setText(weather.getDescription());
 			holder.tv_temp.setText(weather.getTemperature());
 			holder.tv_wind.setText(weather.getWind());
-			holder.tv_quality.setText(weather.getQuality());
+			try{
+				String[] split = weather.getTemperature().split("℃~");
+				String[] little = split[0].split("温度：");
+				if(Integer.parseInt(little[1])<0){
+					holder.cloth.setText("穿衣指数：天气太冷，请穿厚点，穿羽绒服吧");
+				}else if(Integer.parseInt(little[1])<5){
+					holder.cloth.setText("穿衣指数：天气较冷，请穿厚点，穿毛衣吧");
+				}else if(Integer.parseInt(little[1])<15){
+					holder.cloth.setText("穿衣指数：天气较热，请穿少点，穿长袖吧");
+				}else if(Integer.parseInt(little[1])<25){
+					holder.cloth.setText("穿衣指数：天气太热，请穿少点，穿短袖吧");
+				}
+			}catch (Exception e){
+				Toast.makeText(holder.tv_date.getContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+			}
 		} catch (Exception e) {
-			Log.e("TAG", e.getMessage());
+			Toast.makeText(holder.tv_date.getContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
 		}
 
 		return v;
@@ -54,8 +66,7 @@ public class WeatherAdapter extends MyBaseAdapter<Weather> {
 
 	class ViewHolder {
 		ImageView iv;
-		TextView tv_date, tv_state, tv_wind, tv_temp, tv_quality,
-				tv_suggestion;
+		TextView tv_date, tv_state, tv_wind, tv_temp, cloth;
 	}
 
 }
