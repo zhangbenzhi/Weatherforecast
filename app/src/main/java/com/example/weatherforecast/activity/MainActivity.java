@@ -186,13 +186,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                                 String[] split = list.get(0).getTemperature().split("℃~");
                                 String[] little = split[0].split("温度：");
                                 if (Integer.parseInt(little[1]) < 0) {
-                                    iv_wear.setImageResource(R.drawable.yurongfu);
+                                    iv_wear.setImageResource(checked_style==0?R.drawable.yurongfu:R.drawable.yurongfu02);
                                 } else if (Integer.parseInt(little[1]) < 5) {
-                                    iv_wear.setImageResource(R.drawable.maoyi);
+                                    iv_wear.setImageResource(checked_style==0?R.drawable.maoyi:R.drawable.maoyi02);
                                 } else if (Integer.parseInt(little[1]) < 15) {
-                                    iv_wear.setImageResource(R.drawable.changxiu);
+                                    iv_wear.setImageResource(checked_style==0?R.drawable.changxiu:R.drawable.changxiu02);
                                 } else if (Integer.parseInt(little[1]) < 25) {
-                                    iv_wear.setImageResource(R.drawable.lianyiqun);
+                                    iv_wear.setImageResource(checked_style==0?R.drawable.lianyiqun:R.drawable.lianyiqun02);
                                 }
                             } catch (Exception e) {
                                 Toast.makeText(MainActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
