@@ -15,6 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
@@ -24,12 +25,13 @@
                 android:text="迷你小天氣"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
+
             <include
+                layout="@layout/lv_header"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/tv_title"
-                layout="@layout/lv_header"
-                />
+                android:layout_below="@id/tv_title" />
+
             <ProgressBar
                 android:id="@+id/progressBar"
                 style="@android:style/Widget.DeviceDefault.ProgressBar.Large"
@@ -46,55 +48,81 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:visibility="visible"
+        android:background="@color/white"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:background="@color/white">
+        android:visibility="visible">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb01"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableBottom="@drawable/selector_girl" />
+
+            <RadioButton
+                android:id="@+id/rb02"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableBottom="@drawable/selector_boy" />
+
+        </RadioGroup>
+
         <ImageView
             android:id="@+id/cloth01"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/lianyiqun"
             android:layout_marginTop="20dp"
-            />
+            android:src="@drawable/lianyiqun" />
+
         <ImageView
             android:id="@+id/cloth02"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/changxiu"
             android:layout_marginTop="20dp"
-            />
+            android:src="@drawable/changxiu" />
+
         <ImageView
             android:id="@+id/cloth03"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/maoyi"
             android:layout_marginTop="20dp"
-            />
+            android:src="@drawable/maoyi" />
+
         <ImageView
             android:id="@+id/cloth04"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/yurongfu"
             android:layout_marginTop="20dp"
-            />
+            android:src="@drawable/yurongfu" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:visibility="visible"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:visibility="visible">
 
         <ListView
             android:id="@+id/lv_weather"
