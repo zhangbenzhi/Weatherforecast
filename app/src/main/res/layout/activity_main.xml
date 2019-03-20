@@ -58,59 +58,44 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
             <RadioButton
                 android:id="@+id/rb01"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:checked="true"
+                android:layout_height="wrap_content"
                 android:button="@null"
                 android:drawableBottom="@drawable/selector_girl" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
             <RadioButton
                 android:id="@+id/rb02"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:button="@null"
                 android:drawableBottom="@drawable/selector_boy" />
 
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
         </RadioGroup>
-
-        <ImageView
-            android:id="@+id/cloth01"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/lianyiqun" />
-
-        <ImageView
-            android:id="@+id/cloth02"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/changxiu" />
-
-        <ImageView
-            android:id="@+id/cloth03"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/maoyi" />
-
-        <ImageView
-            android:id="@+id/cloth04"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/yurongfu" />
 
         <View
             android:layout_width="match_parent"
