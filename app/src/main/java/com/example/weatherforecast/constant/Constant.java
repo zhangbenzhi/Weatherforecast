@@ -5,7 +5,7 @@ public class Constant {
     //天气请求接口地址：
     public static final String weatherUrl = "http://v.juhe.cn/weather/index";
     //请求天气apikey:
-    public static final String weatherApikey = "90f0a65ba4897116f31e6932625e92e2";
+    public static final String weatherApikey = "7e352726a4a720ba7fa42a476d287940";
     //请求pm:
     public static final String pmUrl = "http://web.juhe.cn:8080/environment/air/pm";
     //请求pm的apikey:
